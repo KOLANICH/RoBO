@@ -1,9 +1,13 @@
 import numpy as np
-import torch
 from functools import partial
 
-from pybnn.bohamiann import Bohamiann
-from pybnn.multi_task_bohamiann import MultiTaskBohamiann
+try:
+    import torch
+    from pybnn.bohamiann import Bohamiann
+    from pybnn.multi_task_bohamiann import MultiTaskBohamiann
+except ImportError:
+    pass
+
 
 from robo.models.base_model import BaseModel
 
