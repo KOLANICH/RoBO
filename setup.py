@@ -1,13 +1,9 @@
-import os
-import sys
 from setuptools import setup, find_packages
-here = os.path.abspath(os.path.dirname(__file__))
 
 requires = [
-    'george',
+    'george @ git+https://github.com/automl/george.git@development',
     'emcee',
     'pyrfr',
-    'pybnn',
     'cython',
     'scipy >= 0.12',
     'numpy >= 1.7'
@@ -23,4 +19,6 @@ setup(name='RoBO',
       packages=find_packages(),
       license='LICENSE.txt',
       test_suite='robo',
-      install_requires=requires)
+      install_requires=requires,
+      extras_require={ 'Bohamiann': ["torch", "pybnn"],} #PEP 508 is not yet available for extras: https://github.com/pypa/pip/issues/5903
+     )
