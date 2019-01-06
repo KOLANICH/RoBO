@@ -12,7 +12,7 @@ except ImportError:
 from robo.models.base_model import BaseModel
 
 
-def get_default_network(input_dimensionality: int) -> torch.nn.Module:
+def get_default_network(input_dimensionality: int) -> "torch.nn.Module":
     class AppendLayer(torch.nn.Module):
         def __init__(self, bias=True, *args, **kwargs):
             super().__init__(*args, **kwargs)
@@ -76,7 +76,7 @@ class WrapperBohamiann(BaseModel):
         return self.bnn.predict(X_test)
 
 
-def get_multitask_network(input_dimensionality: int, n_tasks: int) -> torch.nn.Module:
+def get_multitask_network(input_dimensionality: int, n_tasks: int) -> "torch.nn.Module":
     class AppendLayer(torch.nn.Module):
         def __init__(self, bias=True, *args, **kwargs):
             super().__init__(*args, **kwargs)
